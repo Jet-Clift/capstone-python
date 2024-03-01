@@ -1,0 +1,1 @@
+export POSTGRES_URI="postgresql://xekee:xoticJEDI@localhost:5432/samples
