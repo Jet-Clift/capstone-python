@@ -15,7 +15,7 @@ class User(db.Model):
     password = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
-        return f"<User user id={self.id} username={self.username}>"
+        return f"<User id={self.id} username={self.username}>"
     
 class Samps(db.Model):
     """The samples."""
@@ -27,7 +27,10 @@ class Samps(db.Model):
     bpm = db.Column(db.Integer, nullable=False)
     key = db.Column(db.String(25), nullable=False)
     file_path = db.Column(db.String(255), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     
+    user = db.relationship("User", backref="samples", lazy=False)
+
     def __repr__(self):
         return f"<Samps id={self.id} sample name={self.sample_name}>"
 

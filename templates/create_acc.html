@@ -5,8 +5,8 @@
     <h1>Create an Account</h1>
 
     <div>
-        <h2>Log In</h2>
-        <form action="/users" method="POST">
+
+        <form action="/create_acc.html" method="POST">
             <p>
                 Username <input type="text" name="username">
             </p>
@@ -14,11 +14,11 @@
                 Password <input type="password" name="password">
             </p>
             <p>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <button type="submit">Create User</button>
             </p>
         </form>
     </div>
     <h2>Already have an account?</h2>
-    <button href="/login.html">Log In</button>
-
+    <a href="/login.html">Log In</a>
 {% endblock %}

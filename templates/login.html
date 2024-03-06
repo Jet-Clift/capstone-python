@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}Sample Library{% endblock %}
+{% block title %}Sample Library - Log In{% endblock %}
 
 {% block body %}
     <h1>Please Log In</h1>
 
     <h2>Navigation</h2>
     <ul>
-        <li><a href="/"></a></li>
-        <li><a href="/"></a></li>
+        <li><a href="/">Home</a></li>
+
     </ul>
 
     <div>
         <h2>Log In</h2>
-        <form action="/users" method="POST">
+        <form action="/login" method="POST">
             <p>
                 Username <input type="text" name="username">
             </p>
@@ -20,11 +20,12 @@
                 Password <input type="password" name="password">
             </p>
             <p>
-                <button type="submit">Create User</button>
+                <input type="submit" value="Log In"> 
             </p>
         </form>
     </div>
-    <h2>Don't have an account?</h2>
-    <button href="/create_acc.html">Create Account</button>
 
+
+    <h2>Don't have an account?</h2>
+    <a href="/create_acc.html">Create an Account</a>
 {% endblock %}
