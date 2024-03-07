@@ -1,6 +1,6 @@
-from flask import Flask, render_template, redirect, url_for, session, flash, request
+from flask import Flask, render_template, redirect, session, flash, request, send_file
 from forms import SampleForm
-from model import db, connect_to_db, User, Samps
+from model import db, connect_to_db, Samps
 import crud
 from jinja2 import StrictUndefined
 
@@ -73,6 +73,31 @@ def add_sample():
         flash("Error: Invalid form submission.")
         return render_template("upload_sample.html", sample_form=sample_form)
 
+@app.route("/profile")
+def profile():
+    if "username" not in session:
+        return redirect("/login")
+    username = session["username"]
+    user = crud.get_user_by_username(username)
+    samples = user.samples
+    return render_template("profile.html", samples=samples)
+
+@app.route("/sample/<int:sample_id>")
+def sample_details(sample_id):
+    sample = crud.get_sample_by_id(sample_id)
+    
+    if sample:
+        return render_template("sample_details.html", sample=sample)
+    else:
+        return render_template("404.html"), 404
+
+def download_sample(sample_id):
+    sample = crud.get_sample_by_id(sample_id)
+    if sample:
+        file_path = sample.file_path
+        return send_file(file_path, as_attachment=True)
+    else:
+        return render_template("404.html"), 404
 
 if __name__ == "__main__":
     connect_to_db(app)

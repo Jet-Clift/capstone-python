@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Your Profile{% endblock %}
+
+{% block body %}
+    <h1>Your Profile</h1>
+
+    <h2>Your Samples</h2>
+    <ul>
+        {% for sample in samples %}
+            <li>{{ sample.sample_name }}</li>
+            <!-- Add more details about each sample as needed -->
+        {% endfor %}
+    </ul>
+{% endblock %}
