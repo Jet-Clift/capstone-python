@@ -8,4 +8,12 @@
     <ul>
         <li><a href="/samples">View samples</a></li>
         <li><a href="/users">View all users</a></li>
+
+        {% if current_user %}
+            <li><a href="/profile">View Your Profile</a></li>
+            <li><a href="/upload_sample">Upload Sample</a></li>
+        {% else %}
+            <li><a href="/login">Log In</a></li>
+        {% endif %}
     </ul>
+{% endblock %}

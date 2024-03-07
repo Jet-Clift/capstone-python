@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Recent Samples{% endblock %}
+
+{% block body %}
+<a href="/">Home</a>
+  <h1>Recent Samples</h1>
+
+  <ul>
+    {% for sample, user in zip(samples, users) %}
+      <li>
+        <a href="/samples/{{ sample.id }}">
+          {{ sample.sample_name }} uploaded by {{ user.username }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

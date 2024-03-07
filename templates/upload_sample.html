@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Upload Your Sample{% endblock %}
+{% block body %}
+    <h2>Upload a Sample</h2>
+    <form action="upload_sample.html" method="POST" enctype="multipart/form-data">
+        {{ sample_form.csrf_token }}
+
+        <div>
+            {{ sample_form.sample_name.label }}
+            {{ sample_form.sample_name }}
+        </div>
+
+        <div>
+            {{ sample_form.description.label }}
+            {{ sample_form.description }}
+        </div>
+
+        <div>
+            {{ sample_form.bpm.label }}
+            {{ sample_form.bpm }}
+        </div>
+
+        <div>
+            {{ sample_form.key.label }}
+            {{ sample_form.key }}
+        </div>
+
+        <div>
+            {{ sample_form.file_path.label }}
+            {{ sample_form.file_path }}
+        </div>
+
+        <div>
+            {{ sample_form.submit }}
+        </div>
+    </form>
+{% endblock %}

@@ -30,7 +30,7 @@ def login():
 
     return render_template("login.html")
 
-@app.route("/create_acc.html", methods=["GET", "POST"])
+@app.route("/create_acc", methods=["GET", "POST"])
 def create_account():
     if request.method == "POST":
         username = request.form["username"]
@@ -39,7 +39,7 @@ def create_account():
         existing_user = crud.get_user_by_username(username)
         if existing_user:
             flash("Username already exists. Please choose a different username.")
-            return redirect("/create_acc.html")
+            return redirect("/create_acc")
 
         new_user = crud.create_user(username, password)
         session["username"] = new_user.username
@@ -49,6 +49,29 @@ def create_account():
 
     return render_template("create_acc.html")
     
+@app.route("/samples")
+def all_samples():
+    samples = crud.get_samples()
+    return render_template("all_samples.html")
+
+@app.route("/add_sample", methods=["POST"])
+def add_sample():
+    sample_form = SampleForm()
+    
+    if sample_form.validate_on_submit():
+        sample_name = sample_form.sample_name.data
+        description = sample_form.description.data
+        bpm = sample_form.bpm.data
+        key = sample_form.key.data
+        file_path = sample_form.file_path.data
+
+        new_sample = Samps(sample_name=sample_name, description=description, bpm=bpm, key=key, file_path=file_path)
+        db.session.add(new_sample)
+        db.session.commit()
+        return render_template("upload_sample.html", sample_form=sample_form)
+    else:
+        flash("Error: Invalid form submission.")
+        return render_template("upload_sample.html", sample_form=sample_form)
 
 
 if __name__ == "__main__":

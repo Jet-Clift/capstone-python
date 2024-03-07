@@ -1,7 +1,5 @@
 from model import db, connect_to_db, User, Samps
 
-from model import db, User
-
 def create_user(username, password):
     new_user = User(username=username, password=password)
     db.session.add(new_user)
@@ -16,9 +14,10 @@ def create_sample(sample_name, description, bpm, key, file_path):
         key=key,
         file_path=file_path
     )
-    return new_sample
+    db.session.add(new_sample)
+    db.session.commit()
 
-def get_sample():
+def get_samples():
     return Samps.query.all()
 
 def get_sample_by_id(id):
