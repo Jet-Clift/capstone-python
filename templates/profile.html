@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Your Profile{% endblock %}
-
+{% block head %}{% endblock %}
 {% block body %}
-    <h1>Your Profile</h1>
+    <a class="usamp home" href="/nav">Home</a>
+    <h1 class="heading">Your Profile</h1>
 
     <h2>Your Samples</h2>
     <ul>
         {% for sample in samples %}
-            <li>{{ sample.sample_name }}</li>
-            <!-- Add more details about each sample as needed -->
+            <a class="navbar usamp" href="/samples/{{ sample.id }}">{{ sample.sample_name }}</a>
         {% endfor %}
     </ul>
 {% endblock %}

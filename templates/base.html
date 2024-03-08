@@ -6,10 +6,15 @@
     <title>
         {% block title %}{% endblock %}
     </title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
     {% block head %}{% endblock %}
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1></h1>
+        </header>
+
     {% for msg in get_flashed_messages() %}
         <p class="flash-msg">
             {{ msg }}

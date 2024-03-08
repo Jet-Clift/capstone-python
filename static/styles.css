@@ -1,0 +1,176 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3f3f3f;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 50px;
+    background-color: #f8eabc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.home {
+    position: relative; top: 65px
+}
+.heading {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px; 
+}
+h1 {
+    color: #333;
+    text-align: center;
+    font-size:40px
+}
+
+h2 {
+    color: #333;
+    text-align:left;
+}
+h3 {
+    font-size:xx-large;
+    color: #333;
+    text-align:center;
+}
+
+#sample_name, #bpm, #key {
+    font-size: 25px;
+    width: 400px;
+}
+
+#file_path {
+    scale:1.5;
+    padding-left: 50px;
+}
+
+.usamp {
+    font-size: 1.5em; 
+    padding: 8px 12px; 
+    font-weight:400;
+    
+}
+
+#description {
+    font-size: 25px;
+    min-width: 400px;
+    max-width: 800px;
+}
+
+#submit {
+    text-decoration: none;
+    color: #fff;
+    background-color: #48a0fd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    flex-direction: row;
+}
+
+.upload {
+    font-size:xx-large;
+    color: #333;
+    padding:1%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center; 
+}
+
+.btn {
+    font-size: 1.5em; 
+    padding: 20px 0px; 
+    font-weight:500;
+    
+}
+
+.btn a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.login {
+    text-decoration: none;
+    color: #fff;
+    background-color: #48a0fd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    flex-direction: row;
+}
+
+
+.form {
+    font-size: 25px;
+    padding: 10px, 20px;
+
+}
+
+.box {
+    border: 1px solid black; 
+    background-color: #fdfdfd;
+    padding: 10px; 
+    margin-bottom: 0px; 
+    max-width: fit-content;
+    font-size: x-large;
+    border-radius: 5px;
+
+}
+
+.key {
+    margin-bottom:30px;
+}
+
+.input {
+width: 250px;
+height: 25px;
+font-size: 20px;
+}
+
+.navbar {
+    display: inline-block;
+    margin: 0 10px;
+    text-align:center;
+    color:#e6e5e5
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #37699e;
+    padding: 8px 12px;
+    border-radius: 5px;
+    flex-direction: row;
+}
+
+
+a:hover {
+    background-color: #014691;
+}
+
+.login:hover {
+    background-color: #014691;
+}
+
+.flash-msg {
+    background-color: #a8a8a8;
+    color: #000000;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.sample-box {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}

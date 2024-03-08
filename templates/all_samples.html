@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block title %}Recent Samples{% endblock %}
-
+{% block head %}{% endblock %}
 {% block body %}
-<a href="/">Home</a>
-  <h1>Recent Samples</h1>
+<a class="usamp home" href="/nav">Home</a>
+<h1 class="heading">Recent Samples</h1>
 
   <ul>
-    {% for sample, user in zip(samples, users) %}
+    {% for sample in samples %}
       <li>
-        <a href="/samples/{{ sample.id }}">
-          {{ sample.sample_name }} uploaded by {{ user.username }}
+        <a class="navbar usamp" href="/samples/{{ sample.id }}">
+          {{ sample.sample_name }}
         </a>
       </li>
     {% endfor %}

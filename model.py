@@ -26,7 +26,7 @@ class Samps(db.Model):
     description = db.Column(db.String(255), nullable=True)
     bpm = db.Column(db.Integer, nullable=False)
     key = db.Column(db.String(25), nullable=False)
-    file_path = db.Column(db.String(255), nullable=False)
+    file_path = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     
     user = db.relationship("User", backref="samples", lazy=False)

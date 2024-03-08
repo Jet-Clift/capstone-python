@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}Sample Details{% endblock %}
+{% block head %}
 
+{% endblock %}
 {% block body %}
-    <h1>Sample Details</h1>
-    <h2>{{ sample.sample_name }}</h2>
-    <p>Description: {{ sample.description }}</p>
-    <p>BPM: {{ sample.bpm }}</p>
-    <p>Key: {{ sample.key }}</p>
+    <a class="usamp home" href="/nav">Home</a>
+    <a class="usamp home" href="/samples">Back</a>
+    <h1 class="heading">Sample Details</h1>
+    <h2 class="box">{{ sample.sample_name }}</h2>
+    <p class="box">Description: {{ sample.description }}</p>
+    <p class="box">BPM: {{ sample.bpm }}</p>
+    <p class="box key">Key: {{ sample.key }}</p>
+    <a class="usamp" href="{{ url_for('download_sample', sample_id=sample.id) }}">Download Sample</a>
     <p>File Path: {{ sample.file_path }}</p>
-    <p>User: {{ sample.user.username }}</p>
-    
-    <a href="{{ url_for('download_sample', sample_id=sample.id) }}">Download Sample</a>
 {% endblock %}

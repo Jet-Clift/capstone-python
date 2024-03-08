@@ -1,36 +1,40 @@
 {% extends 'base.html' %}
 {% block title %}Upload Your Sample{% endblock %}
+{% block head %}
+
+{% endblock %}
 {% block body %}
-    <h2>Upload a Sample</h2>
-    <form action="upload_sample.html" method="POST" enctype="multipart/form-data">
+    <a class="usamp home" href="/nav">Home</a>
+    <h1 class="heading">Upload a Sample</h1>
+    <form class="form" action="{{ url_for('add_sample') }}" method="POST" enctype="multipart/form-data">
         {{ sample_form.csrf_token }}
 
-        <div>
+        <div class="upload">
             {{ sample_form.sample_name.label }}
             {{ sample_form.sample_name }}
         </div>
 
-        <div>
+        <div class="upload">
             {{ sample_form.description.label }}
             {{ sample_form.description }}
         </div>
 
-        <div>
+        <div class="upload">
             {{ sample_form.bpm.label }}
             {{ sample_form.bpm }}
         </div>
 
-        <div>
+        <div class="upload">
             {{ sample_form.key.label }}
             {{ sample_form.key }}
         </div>
 
-        <div>
+        <div class="upload">
             {{ sample_form.file_path.label }}
             {{ sample_form.file_path }}
         </div>
 
-        <div>
+        <div class="upload">
             {{ sample_form.submit }}
         </div>
     </form>
