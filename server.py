@@ -121,7 +121,8 @@ def download_sample(sample_id):
         print(sample.file_path)
         if file_path:
 
-            return send_file(f"C:/Users/xekee/devmountain-work/Capper-part2/uploads/{file_path}", as_attachment=True, mimetype=None)
+            return send_file(f"uploads/{file_path}", as_attachment=True, mimetype=None)
+            # return send_file(f"C:/Users/xekee/devmountain-work/Capper-part2/uploads/{file_path}", as_attachment=True, mimetype=None)
     else:
         flash("The sample doesn't exist.")
         return redirect("/samples")
@@ -149,7 +150,6 @@ def upload_file():
     if file:
         file_path = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
         file.save(file_path)
-        # shutil.move(file_path, os.path.join(app.config["UPLOAD_FOLDER"], "new_filename.wav"))
         flash("File uploaded successfully!", "success")
         return redirect("/samples") 
 
