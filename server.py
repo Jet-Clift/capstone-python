@@ -122,7 +122,6 @@ def download_sample(sample_id):
         if file_path:
 
             return send_file(f"uploads/{file_path}", as_attachment=True, mimetype=None)
-            # return send_file(f"C:/Users/xekee/devmountain-work/Capper-part2/uploads/{file_path}", as_attachment=True, mimetype=None)
     else:
         flash("The sample doesn't exist.")
         return redirect("/samples")
